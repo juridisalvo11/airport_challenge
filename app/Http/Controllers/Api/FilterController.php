@@ -13,13 +13,15 @@ class FilterController extends Controller
 
         $price = $request->price;
 
-        $airports = Airport::join('flights', 'airport.id', '=', 'flight.id')->where('price', '=', $price)->orderedBy('flights.price')->first();
+        $airports = Airport::join('flights', 'airports.id', '=', 'flights.id')->where('price', '<', 100)->orderBy('flights.price')->first();
+
+        //$flights = Flight::join('airports', 'flights.id', '=', 'airports.id')->orderBy('flights.price')->where('price', '<', 100)->first();
 
         if ($airports->get()->isEmpty()) {
             return response()->json([
                     'success' => true,
                     'length' => $airports->get()->count(),
-                    "error" => "Nessun appartamento trovato",
+                    "error" => "Nessun volo trovato",
                     'results' => []
             ]);
 

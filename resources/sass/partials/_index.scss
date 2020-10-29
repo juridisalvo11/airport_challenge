@@ -1,0 +1,13 @@
+.flight-template {
+    @include flex(space-around, wrap);
+}
+
+.flight-card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+
+    .card-img-top {
+        padding: 10px;
+    }
+}

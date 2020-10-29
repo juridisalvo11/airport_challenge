@@ -16,7 +16,8 @@ class AirportController extends Controller
     public function index()
     {
         $airports = Airport::all();
-        return view('index', compact('airports'));
+        $flights = Flight::all();
+        return view('index', compact('airports', 'flights'));
     }
 
     /**
