@@ -17,7 +17,6 @@ class AirportsTableSeeder extends Seeder
         foreach ($airports as $airport) {
             $newAirport = new Airport();
             $newAirport->name = $airport['name'];
-            $newAirport->stopover = $airport['stopover'];
             $newAirport->code = $airport['code'];
             $newAirport->lat = $airport['lat'];
             $newAirport->lon = $airport['lon'];

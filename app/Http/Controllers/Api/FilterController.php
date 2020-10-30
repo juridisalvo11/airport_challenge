@@ -11,16 +11,18 @@ class FilterController extends Controller
 {
     public function flight(Request $request) {
 
-        $price = $request->price;
+        $code_departure = $request->code_departure;
+        $code_arrival = $request->code_arrival;
 
-        $airports = Airport::join('flights', 'airports.id', '=', 'flights.id')->where('price', '<', 100)->orderBy('flights.price')->first();
 
-        //$flights = Flight::join('airports', 'flights.id', '=', 'airports.id')->orderBy('flights.price')->where('price', '<', 100)->first();
+        $airports = Flight::where('code_departure', $code_departure)->where('code_arrival', $code_arrival)->where('stopover', '<=', 1)->orderBy('flights.price')->limit(1)->get();
 
-        if ($airports->get()->isEmpty()) {
+        
+
+        if (empty($airports)) {
             return response()->json([
                     'success' => true,
-                    'length' => $airports->get()->count(),
+                    'length' => 0,
                     "error" => "Nessun volo trovato",
                     'results' => []
             ]);
@@ -28,8 +30,8 @@ class FilterController extends Controller
         } else {
             return response()->json([
                     'success' => true,
-                    'length' => $airports->get()->count(),
-                    'results' => $airports->get()
+                    'length' => $airports->count(),
+                    'results' => $airports
             ]);
         }
 

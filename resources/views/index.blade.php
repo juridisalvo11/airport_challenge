@@ -23,13 +23,7 @@
                                     <a href="">Name</a>
                                 </th>
                                 <th>
-                                    <a href="">Stopover</a>
-                                </th>
-                                <th>
                                     <a href="">Code</a>
-                                </th>
-                                <th>
-                                    <a href="">Actions</a>
                                 </th>
                             </tr>
                         </thead>
@@ -39,23 +33,41 @@
                             <tr class="text-center flight-list">
                                 <td>{{$airport->id}}</td>
                                 <td>{{$airport->name}}</td>
-                                <td>{{$airport->stopover}}</td>
                                 <td>{{$airport->code}}</td>
-                                <td>
-                                    <a class="btn btn-info btn-sm" href="">Details</a>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <div class="filters-list">
                         <div class="form-group filter-input">
-                            <label for="flightDeparture">From :</label>
-                            <input type="text" name="flightDeparture" class="form-control" id="departure">
+                        <label for="flightDeparture">Choose departure:</label>
+
+                        <select name="flightDeparture" id="departure">
+                        <option value="departure" selected>Airport departure</option>
+                        <option value="fco">FCO</option>
+                        <option value="par">PAR</option>
+                        <option value="tri">TRI</option>
+                        <option value="bri">BRI</option>
+                        <option value="ny">NY</option>
+                        <option value="nap">NAP</option>
+                        </select>
+                            <!-- <label for="flightDeparture">From :</label>
+                            <input type="text" name="flightDeparture" class="form-control" id="departure"> -->
                         </div>
                         <div class="form-group filter-input">
-                            <label for="flightArrival">To :</label>
-                            <input type="text" name="flightArrival" class="form-control" id="arrival">
+                        <label for="flightArrival">Choose arrival:</label>
+
+                        <select name="flightArrival" id="arrival">
+                        <option value="arrival" selected>Airport arrival</option>
+                        <option value="fco">FCO</option>
+                        <option value="par">PAR</option>
+                        <option value="tri">TRI</option>
+                        <option value="bri">BRI</option>
+                        <option value="ny">NY</option>
+                        <option value="nap">NAP</option>
+                        </select>
+                            <!-- <label for="flightArrival">To :</label>
+                            <input type="text" name="flightArrival" class="form-control" id="arrival"> -->
                         </div>
                         <div class="buttons d-flex justify-content-flex-start">
                               <div class="text-center">
@@ -67,14 +79,14 @@
                 </div>
             </div>
         </div>
-        <script id="event-template" type="text/x-handlebars-template">
+        <script id="template" type="text/x-handlebars-template">
                       <div class="flight-card" style="width: 18rem;">
                         <img class="card-img-top" src="img/flight.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">@{{name}}</h5>
-                            <p class="card-text">Stopover : @{{stopover}}</p>
-                            <p class="card-text">Airport code : @{{code}}</p>
-                            <p class="card-text">Price : @{{price}}</p>
+                            <p class="card-text"><strong>Airport code departure:</strong> @{{code_departure}}</p>
+                            <p class="card-text"><strong>Airport code arrival:</strong> @{{code_arrival}}</p>
+                            <p class="card-text"><strong>Stopover:</strong> @{{stopover}}</p>
+                            <p class="card-text"><strong>Price :</strong> @{{price}} €</p>
                             <a href="localhost:8000/events/@{{id}}" class="btn btn-primary">Details</a>
                         </div>
                       </div>

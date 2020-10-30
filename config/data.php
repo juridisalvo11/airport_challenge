@@ -4,66 +4,90 @@ return [
 
     'airport' => [
       [
-        'name'=> "Roma - Parigi",
-        'stopover' => 0,
+        'name'=> "Roma",
         'code'=> "FCO",
         'lat'=> 41.7709300,
         'lon' => 12.2366200
       ],
 
-      [ 'name'=> "Milano - Parigi",
-      'stopover' => 0,
+      [ 'name'=> "Milano",
         'code'=> "MXP",
         'lat'=> 45.633333,
         'lon' => 8.733333
       ],
       [
-        'name'=> "Roma - New York",
-        'stopover' => 1,
-        'code'=> "FCO",
+        'name'=> "Torino",
+        'code'=> "TRN",
         'lat'=> 41.7709300,
         'lon' => 12.2366200
       ],
       [
-        'name'=> "Milano - New York",
-        'stopover' => 0,
-        'code'=> "MXP",
+        'name'=> "Bari",
+        'code'=> "BRI",
         'lat'=> 45.633333,
         'lon' => 8.733333
       ],
       [
-        'name'=> "Napoli - New York",
-        'stopover' => 2,
+        'name'=> "Napoli",
         'code'=> "NAP",
         'lat'=> 40.8858,
         'lon' => 14.2906
+      ],
+      [
+        'name'=> "Parigi",
+        'code'=> "PAR",
+        'lat'=> 65.8858,
+        'lon' => 15.2906
+      ],
+      [
+        'name'=> "New York",
+        'code'=> "NY",
+        'lat'=> 78.5125,
+        'lon' => 65.2906
       ]
       
     ],
     'flight' => [
       [
-        'code_departure'=> 'ATC7564235',
-        'code_arrival' => 'ATC9626632',
+        'code_departure'=> 'FCO',
+        'code_arrival' => 'PAR',
+        'stopover' => 0,
         'price'=> 75
       ],
       [
-        'code_departure'=> 'BKD5648235',
-        'code_arrival' => 'BKD3265489',
+        'code_departure'=> 'FCO',
+        'code_arrival' => 'PAR',
+        'stopover' => 0,
+        'price'=> 150
+      ],
+      [
+        'code_departure'=> 'MXP',
+        'code_arrival' => 'PAR',
+        'stopover' => 1,
         'price'=> 56
       ],
       [
-        'code_departure'=> 'LDN3652462',
-        'code_arrival' => 'LDN5698548',
+        'code_departure'=> 'TRI',
+        'code_arrival' => 'NY',
+        'stopover' => 1,
         'price'=> 453
       ],
       [
-        'code_departure'=> 'YKC9654823',
-        'code_arrival' => 'YKC9658745',
+        'code_departure'=> 'TRI',
+        'code_arrival' => 'NY',
+        'stopover' => 1,
+        'price'=> 350
+      ],
+      [
+        'code_departure'=> 'BRI',
+        'code_arrival' => 'NY',
+        'stopover' => 0,
         'price'=> 659
       ],
       [
-        'code_departure'=> 'PHL5698563',
-        'code_arrival' => 'PHL3652658',
+        'code_departure'=> 'NAP',
+        'code_arrival' => 'NY',
+        'stopover' => 2,
         'price'=> 399
       ]
       

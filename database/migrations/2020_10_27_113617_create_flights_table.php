@@ -17,6 +17,7 @@ class CreateFlightsTable extends Migration
             $table->id();
             $table->string('code_departure', 10);
             $table->string('code_arrival', 10);
+            $table->integer('stopover')->nullable();
             $table->float('price', 6, 2);
             $table->timestamps();
         });

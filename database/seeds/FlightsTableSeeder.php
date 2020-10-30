@@ -18,6 +18,7 @@ class FlightsTableSeeder extends Seeder
            $newFlight = new Flight();
            $newFlight->code_departure = $flight['code_departure'];
            $newFlight->code_arrival = $flight['code_arrival'];
+           $newFlight->stopover = $flight['stopover'];
            $newFlight->price = $flight['price'];
            $newFlight->save();
        }
